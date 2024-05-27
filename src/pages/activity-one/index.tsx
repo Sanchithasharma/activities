@@ -1,6 +1,7 @@
 import "./styles.css";
 import BAKED_GOODS from "../../assets/baked-goods.json";
 import { useState, ChangeEvent, FormEvent } from "react";
+import { Table } from "./table";
 
 export const ActivityOne = () => {
   const [bakedGoods, setBakedGoods] = useState(BAKED_GOODS);
@@ -126,59 +127,8 @@ export const ActivityOne = () => {
         />
       </div>
 
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <button className="header-btn" onClick={() => handleSort("id")}>
-                  ID{" "}
-                  {sortConfig.key === "id" &&
-                    (sortConfig.direction === "ascending" ? "🔼" : "🔽")}
-                </button>
-              </th>
-              <th>
-                <button
-                  className="header-btn"
-                  onClick={() => handleSort("type")}
-                >
-                  Type{" "}
-                  {sortConfig.key === "type" &&
-                    (sortConfig.direction === "ascending" ? "🔼" : "🔽")}
-                </button>
-              </th>
-              <th>
-                <button
-                  className="header-btn"
-                  onClick={() => handleSort("name")}
-                >
-                  Name{" "}
-                  {sortConfig.key === "name" &&
-                    (sortConfig.direction === "ascending" ? "🔼" : "🔽")}
-                </button>
-              </th>
-              <th>
-                <button onClick={() => handleSort("topping")}>
-                  Topping{" "}
-                  {sortConfig.key === "topping" &&
-                    (sortConfig.direction === "ascending" ? "🔼" : "🔽")}
-                </button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredDonuts.map((donut, index) => (
-              <tr key={index}>
-                <td>{donut.id}</td>
-                <td>{donut.type}</td>
-                <td>{donut.name}</td>
-                <td>{donut.topping}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
+    <Table filteredDonuts={filteredDonuts} sortConfig={sortConfig} handleSort={handleSort} />
+    
       <div className="number-of-rows">Number of items: {bakedGoods.length}</div>
     </div>
   );

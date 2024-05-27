@@ -31,5 +31,13 @@ Add `/2` to the url run the code for activity 2
 
 Add `/3` to the url run the code for activity 3
 
+------------------------------------------------------
+For example,
+http://localhost:5173/ will open up activity 1
+
+http://localhost:5173/2 will open activity 2
+
+http://localhost:5173/3 will open activity 3
+
 
 

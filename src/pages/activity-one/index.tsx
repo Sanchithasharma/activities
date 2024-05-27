@@ -3,7 +3,7 @@ import BAKED_GOODS from "../../assets/baked-goods.json";
 import { useState, ChangeEvent, FormEvent } from "react";
 
 export const ActivityOne = () => {
-  const [donuts, setDonuts] = useState(BAKED_GOODS);
+  const [bakedGoods, setBakedGoods] = useState(BAKED_GOODS);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
   const [newDonut, setNewDonut] = useState({
@@ -17,7 +17,7 @@ export const ActivityOne = () => {
     setSearchTerm(event.target.value);
   };
 
-  const sortedDonuts = [...donuts].sort((a, b) => {
+  const sortedDonuts = [...bakedGoods].sort((a, b) => {
     if (sortConfig.key) {
       let aValue = a[sortConfig.key];
       let bValue = b[sortConfig.key];
@@ -63,7 +63,7 @@ export const ActivityOne = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setDonuts((prevDonuts) => [
+    setBakedGoods((prevDonuts) => [
       ...prevDonuts,
       { ...newDonut, id: getId(newDonut.name) },
     ]);
@@ -80,7 +80,7 @@ export const ActivityOne = () => {
     else if (lName === "bar") return 4;
     else if (lName === "twist") return 5;
     else if (lName === "filled") return 6;
-    else return donuts.length + 1;
+    else return bakedGoods.length + 1;
   };
 
   return (
@@ -113,7 +113,7 @@ export const ActivityOne = () => {
             onChange={handleChange}
             required
           />
-          <button type="submit">Add Donut</button>
+          <button type="submit">Add item</button>
         </form>
       </div>
 
@@ -179,7 +179,7 @@ export const ActivityOne = () => {
         </table>
       </div>
 
-      <div className="number-of-rows">Number of items: {donuts.length}</div>
+      <div className="number-of-rows">Number of items: {bakedGoods.length}</div>
     </div>
   );
 };

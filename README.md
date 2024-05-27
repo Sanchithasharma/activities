@@ -1,4 +1,4 @@
-# Bake New Items
+# Baked Goods, Object search and API call to fetch locations
 
 This project contains simple table that enlists all the baked items and option to add new items
 

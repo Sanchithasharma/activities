@@ -4,6 +4,7 @@ This project contains simple table that enlists all the baked items and option t
 
 
 ## How to run the app?
+Run below commands in your terminal
 ```
 git clone https://github.com/Sanchithasharma/activities.git
 

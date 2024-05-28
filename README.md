@@ -1,6 +1,9 @@
 # Baked Goods, Object search and API call to fetch locations
 
-This project contains simple table that enlists all the baked items and option to add new items
+This project contains 3 activities
+- List of baked goods with sort, filter and create options.
+- Find property of the key from nested object
+- Simple api call to fetch locations
 
 
 ## How to run the app?

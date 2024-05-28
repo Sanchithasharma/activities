@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import "./styles.css";
 import { getProperty } from "./getProperty";
 
@@ -21,9 +21,13 @@ export const ActivityTwo = () => {
   const [path, setPath] = useState("address.office.state");
   const [obj, setObj] = useState(JSON.stringify(OBJ));
 
-  const handleSubmit = () => {
+  const [answer, setAnswer] = useState('')
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
     const property = getProperty(path, JSON.parse(obj));
-    alert(property);
+    setAnswer(JSON.stringify(property))
+    console.log(property)
   };
 
   return (
@@ -53,6 +57,12 @@ export const ActivityTwo = () => {
           <div>
             <button type="submit">Click here to see the result</button>
           </div>
+
+          {answer && <div>
+            Returns {answer}
+          </div>}
+          
+
         </form>
       </div>
     </>

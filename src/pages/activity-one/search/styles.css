@@ -1,0 +1,8 @@
+.search {
+  text-align: end;
+  margin: 16px 0;
+
+  & input {
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+.activity-two-form {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  gap: 16px;
+
+  & button {
+    background-color: var(--blue);
+    color: white;
+    transition: background-color 0.3s ease-in-out;
+  }
+}

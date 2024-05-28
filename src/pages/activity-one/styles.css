@@ -1,8 +1,8 @@
 :root {
-  --blue: #0C62F2;
-  --pale-blue: #F1F7F9;
+  --blue: #0c62f2;
+  --pale-blue: #f1f7f9;
   --border-color: #ddd;
-  
+
   --border: 1px solid var(--border-color);
 }
 
@@ -26,7 +26,6 @@ input {
   }
 }
 
-
 .form-container {
   & form {
     display: flex;
@@ -42,7 +41,7 @@ input {
 
     button:hover {
       background-color: var(--blue);
-  }
+    }
   }
 }
 

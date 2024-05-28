@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { useState } from "react";
+import "./styles.css";
+import { getProperty } from "./getProperty";
 
 const OBJ = {
   name: "Megaport",
@@ -16,20 +18,43 @@ const OBJ = {
 };
 
 export const ActivityTwo = () => {
-  const getProperty = (path: string, obj: any) => {
-    return path.split(".").reduce((acc, part) => acc && acc[part], obj);
-  };
+  const [path, setPath] = useState("address.office.state");
+  const [obj, setObj] = useState(JSON.stringify(OBJ));
 
-  useEffect(() => {
-    const property = getProperty("address.office.state", OBJ);
+  const handleSubmit = () => {
+    const property = getProperty(path, JSON.parse(obj));
     alert(property);
-  }, []);
+  };
 
   return (
     <>
-      <div>Activity Two</div>
+      <h2>Activity Two</h2>
 
-      <div></div>
+      <div>
+        <form className="activity-two-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter your path here"
+            value={path}
+            onChange={(event) => {
+              setPath(event.target.value);
+            }}
+          />
+
+          <textarea
+            rows={5}
+            placeholder="Enter your object here"
+            value={JSON.stringify(obj)}
+            onChange={(event) => {
+              setObj(event.target.value);
+            }}
+          />
+
+          <div>
+            <button type="submit">Click here to see the result</button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

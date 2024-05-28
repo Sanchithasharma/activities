@@ -2,6 +2,7 @@ import "./styles.css";
 import BAKED_GOODS from "../../assets/baked-goods.json";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Table } from "./table";
+import { Search } from "./search/index";
 
 export const ActivityOne = () => {
   const [bakedGoods, setBakedGoods] = useState(BAKED_GOODS);
@@ -92,7 +93,7 @@ export const ActivityOne = () => {
   };
 
   return (
-    <>
+    <div>
       <h1>Baked Items</h1>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
@@ -125,14 +126,7 @@ export const ActivityOne = () => {
         </form>
       </div>
 
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Search for baked items..."
-          value={searchTerm}
-          onChange={handleSearch}
-        />
-      </div>
+      <Search searchTerm={searchTerm} handleSearch={handleSearch} />
 
       <Table
         data={filteredDonuts}
@@ -141,6 +135,6 @@ export const ActivityOne = () => {
       />
 
       <div className="number-of-rows">Number of items: {bakedGoods.length}</div>
-    </>
+    </div>
   );
 };

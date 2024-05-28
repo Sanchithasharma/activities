@@ -1,17 +1,13 @@
 import { IBakedGoods } from "../../../types/activity-one";
-import './styles.css';
+import "./styles.css";
 
 type TableProps = {
-  filteredDonuts: IBakedGoods[];
+  data: IBakedGoods[];
   sortConfig: { key: string; direction: string };
   handleSort: (key: string) => void;
 };
 
-export const Table = ({
-  filteredDonuts,
-  sortConfig,
-  handleSort,
-}: TableProps) => {
+export const Table = ({ data, sortConfig, handleSort }: TableProps) => {
   return (
     <div className="table-container">
       <table>
@@ -48,7 +44,7 @@ export const Table = ({
           </tr>
         </thead>
         <tbody>
-          {filteredDonuts.map((donut: IBakedGoods, index: number) => (
+          {data.map((donut: IBakedGoods, index: number) => (
             <tr key={index}>
               <td>{donut.id}</td>
               <td>{donut.type}</td>

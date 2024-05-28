@@ -1,6 +1,7 @@
 :root {
     --pale-blue: #F1F7F9;
     --border-color: #ddd;
+    
     --border: 1px solid var(--border-color);
 }
 

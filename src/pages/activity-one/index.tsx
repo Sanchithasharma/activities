@@ -65,27 +65,34 @@ export const ActivityOne = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setBakedGoods((prevDonuts) => [
-      ...prevDonuts,
       { ...newDonut, id: getId(newDonut.name) },
+      ...prevDonuts,
     ]);
     setNewDonut({ id: "", type: "", name: "", topping: "" });
   };
 
   const getId = (name: string) => {
     const lName = name.toLowerCase().trim();
-
-    if (lName === "cake") {
-      return 1;
-    } else if (lName === "raised") return 2;
-    else if (lName === "oldfashioned") return 3;
-    else if (lName === "bar") return 4;
-    else if (lName === "twist") return 5;
-    else if (lName === "filled") return 6;
-    else return bakedGoods.length + 1;
+    switch (lName) {
+      case "cake":
+        return 1;
+      case "raised":
+        return 2;
+      case "oldfashioned":
+        return 3;
+      case "bar":
+        return 4;
+      case "twist":
+        return 5;
+      case "filled":
+        return 6;
+      default:
+        return bakedGoods.length + 1;
+    }
   };
 
   return (
-    <div>
+    <>
       <h1>Baked Items</h1>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
@@ -127,9 +134,13 @@ export const ActivityOne = () => {
         />
       </div>
 
-    <Table filteredDonuts={filteredDonuts} sortConfig={sortConfig} handleSort={handleSort} />
-    
+      <Table
+        data={filteredDonuts}
+        sortConfig={sortConfig}
+        handleSort={handleSort}
+      />
+
       <div className="number-of-rows">Number of items: {bakedGoods.length}</div>
-    </div>
+    </>
   );
 };

@@ -2,10 +2,11 @@
   --blue: #0C62F2;
   --pale-blue: #F1F7F9;
   --border-color: #ddd;
+  
   --border: 1px solid var(--border-color);
 }
 
-input, select {
+input {
   padding: 10px;
   border: var(--border);
   border-radius: 5px;
